@@ -43,14 +43,8 @@
 
 ---
 
-## 🚀 시작하기 (Quick Start)
-```bash
-# 저장소 복제
-git clone [https://github.com/username/WhereIsTruck.git](https://github.com/username/WhereIsTruck.git)
-
-# 의존성 설치
-npm install
-
-# 환경 변수 설정 (.env)
-# MAP_API_KEY=your_key_here
-# DB_URL=your_db_url
+## ⚙️ 설정 (Environment)
+이 프로젝트를 실행하기 위해서는 아래와 같은 환경 설정이 필요합니다.
+* **Map API:** Google Maps API Key 또는 Kakao Map Key
+* **Database:** PostgreSQL (PostGIS extension 설치 필수)
+* **Auth:** Firebase Admin SDK Key
