@@ -53,3 +53,9 @@ alwaysApply: true
 - 대상 파일: **`docs/ROADMAP.md`**
 - 해당 단계의 **항목**·**설명** 셀에 마크다운 취소선(`~~텍스트~~`)을 적용한다.
 - 로드맵 상의 표기 안내에 이미 "~~취소선~~ = 완료된 항목"이 있으므로, 새로 완료된 단계를 반영할 때 동일한 방식으로 취소선을 추가한다.
+
+## 6. 기술 가이드 지속 반영
+- **새로 추가·수정되는 각 언어·기술**은 해당하는 **가이드 MD 파일**에 **지속적으로** 반영한다.
+- 가이드 위치: **`docs/guides/`** (NODEJS-GUIDE.md, NESTJS-GUIDE.md, TYPEORM-GUIDE.md, SOCKETIO-GUIDE.md, FIREBASE-GUIDE.md, FLUTTER-GUIDE.md, POSTGRES-GUIDE.md).
+- 새 기술을 도입하면 **`docs/guides/README.md`** 목차에 항목을 추가하고, **해당 기술 전용 가이드 MD**를 만들거나 기존 가이드에 섹션을 추가한다.
+- 기존 기술의 사용 방식·패턴·설정이 바뀌면, 해당 가이드에 "추가/변경된 내용"을 반영해 초보자도 따라갈 수 있도록 유지한다.
