@@ -21,12 +21,15 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/PROJECT_STRUCTURE.md` — §2 추가: 다른 PC 클론 시 저장소 포함/제외 기준 정리, 섹션 번호 3~9로 조정
 - 2025-03-06 `.gitignore` — .env 다시 목록에 추가 (이후 .env 변경분 미커밋)
 - 2025-03-06 `.cursor/rules/whereistruck-project.mdc` — §4.3 .env는 한 번만 커밋, 이후 미커밋 규칙 추가
+- 2025-03-06 문서·구성 정리 — 백엔드 NestJS 단일, 프론트 Flutter 단일로 재설계
 
 ### Fixed
 - (버그 수정 항목을 위 형식으로 여기에 기록)
 
 ### Removed
-- (삭제된 항목을 위 형식으로 여기에 기록)
+- 2025-03-06 `backend/fastapi/` — FastAPI 백엔드 제거 (NestJS 단일로 전환)
+- 2025-03-06 `frontend/mobile-react/` — React Native 앱 제거 (Flutter 단일로 전환)
+- 2025-03-06 루트 `package.json`, `package-lock.json`, `requirements.txt` — 혼동 방지를 위해 제거 (실제 엔트리는 `backend/nest`, `frontend/mobile-flutter`)
 
 ---
 

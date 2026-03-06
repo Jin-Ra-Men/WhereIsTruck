@@ -7,7 +7,7 @@
 ## 1. 사전 요구사항
 
 - **Node.js** (LTS) — `backend/nest` 실행
-- **Python** (3.10+) — `backend/fastapi` 실행
+- **Flutter** — `frontend/mobile-flutter` 실행
 - **PostgreSQL + PostGIS** — 위치 쿼리 개발 (로컬 설치 또는 Docker)
 - **선택:** Map API 키(Google/Kakao), Firebase 프로젝트(인증·푸시)
 
@@ -60,21 +60,13 @@ npm run start:dev
 
 - 기본: `http://localhost:3000`
 
-### 3.3 백엔드 — FastAPI
+### 3.3 프론트엔드 (모바일) — Flutter
 
 ```bash
-cd backend/fastapi
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+cd frontend/mobile-flutter
+flutter pub get
+flutter run
 ```
-
-- 기본: `http://localhost:8000`  
-- API 문서: `http://localhost:8000/docs`
-
-### 3.4 프론트엔드 (모바일)
-
-- **React Native:** `frontend/mobile-react` 에서 `npx react-native start` 및 앱 빌드/실행  
-- **Flutter:** `frontend/mobile-flutter` 에서 `flutter run`
 
 각 앱에서 사용할 API Base URL을 `.env` 또는 설정 파일에서 `localhost`(에뮬레이터용) 또는 실제 기기 IP로 지정합니다.
 
@@ -82,13 +74,13 @@ uvicorn app.main:app --reload
 
 ## 4. 의존성 일괄 설치
 
-Windows PowerShell에서 루트의 스크립트로 Nest + FastAPI 의존성을 한 번에 설치할 수 있습니다.
+Windows PowerShell에서 루트의 스크립트로 NestJS 의존성을 설치할 수 있습니다.
 
 ```powershell
 .\install-dependencies.ps1
 ```
 
-이 스크립트는 루트 기준으로 동작합니다. `backend/nest`와 `backend/fastapi`가 분리된 경우, 스크립트 내용을 각각 `backend/nest`와 `backend/fastapi`에서 실행하도록 수정해 사용하세요.
+이 스크립트는 루트 기준으로 동작합니다. Flutter 의존성(`flutter pub get`)은 Flutter SDK 설치 후 `frontend/mobile-flutter`에서 실행합니다.
 
 ---
 

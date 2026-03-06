@@ -28,8 +28,8 @@
 ---
 
 ## 🛠 기술 스택 (Tech Stack)
-* **Frontend:** `React Native` / `Flutter` (모바일 중심 환경)
-* **Backend:** `Node.js (NestJS)` / `Python (FastAPI)`
+* **Frontend:** `Flutter` (모바일 중심 환경, 지도 중심 UX)
+* **Backend:** `Node.js (NestJS)`
 * **Database:** `PostgreSQL` (**PostGIS** 활용 위치 쿼리 최적화)
 * **Real-time:** `Socket.io` (실시간 위치 및 상태 업데이트)
 * **Infrastructure:** `AWS` / `Google Cloud Platform`
@@ -48,7 +48,7 @@
 * **폴더 구조:** [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) — 디렉터리 설명, 백엔드/프론트/공유 자원
 * **아키텍처:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — 시스템 구성, 위치·인증·실시간 로직
 * **개발 가이드:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) — 로컬 실행, 환경 변수, 브랜치·배포 요약
-* **환경 설정:** [SETUP.md](SETUP.md) — Node.js / Python / PostgreSQL 설치 및 의존성 설치
+* **환경 설정:** [SETUP.md](SETUP.md) — Node.js / Flutter / PostgreSQL 설치 및 의존성 설치
 
 ---
 

@@ -1,5 +1,5 @@
 # WhereIsTruck - 필수 기술 스택 의존성 설치 스크립트
-# README.md 기술 스택 기준 (Node.js/NestJS, Python/FastAPI, Socket.io 등)
+# README.md 기술 스택 기준 (Node.js/NestJS, Socket.io, Flutter 등)
 
 $ErrorActionPreference = "Stop"
 $ProjectRoot = $PSScriptRoot
@@ -21,25 +21,21 @@ if (Test-Path $NestPath) {
     Write-Host "`n[1/2] backend/nest 폴더가 없습니다. 건너뜁니다." -ForegroundColor Gray
 }
 
-# 2. Python (FastAPI) — backend/fastapi
-$FastApiPath = Join-Path $ProjectRoot "backend\fastapi"
-if (Test-Path $FastApiPath) {
-    $ReqFile = Join-Path $FastApiPath "requirements.txt"
-    if (Test-Path $ReqFile) {
-        if (Get-Command pip -ErrorAction SilentlyContinue) {
-            Write-Host "`n[2/2] backend/fastapi — pip install -r requirements.txt 실행 중..." -ForegroundColor Yellow
-            Set-Location $FastApiPath; pip install -r requirements.txt; Set-Location $ProjectRoot
-            if ($LASTEXITCODE -eq 0) { Write-Host "  FastAPI 패키지 설치 완료." -ForegroundColor Green }
-        } elseif (Get-Command pip3 -ErrorAction SilentlyContinue) {
-            Write-Host "`n[2/2] backend/fastapi — pip3 install -r requirements.txt 실행 중..." -ForegroundColor Yellow
-            Set-Location $FastApiPath; pip3 install -r requirements.txt; Set-Location $ProjectRoot
-            if ($LASTEXITCODE -eq 0) { Write-Host "  FastAPI 패키지 설치 완료." -ForegroundColor Green }
-        } else {
-            Write-Host "`n[2/2] pip을 찾을 수 없습니다. Python을 먼저 설치해 주세요: https://www.python.org/downloads/" -ForegroundColor Red
+# 2. Flutter (선택) — frontend/mobile-flutter
+$FlutterPath = Join-Path $ProjectRoot "frontend\mobile-flutter"
+if (Test-Path $FlutterPath) {
+    if (Get-Command flutter -ErrorAction SilentlyContinue) {
+        $Pubspec = Join-Path $FlutterPath "pubspec.yaml"
+        if (Test-Path $Pubspec) {
+            Write-Host "`n[2/2] frontend/mobile-flutter — flutter pub get 실행 중..." -ForegroundColor Yellow
+            Set-Location $FlutterPath; flutter pub get; Set-Location $ProjectRoot
+            if ($LASTEXITCODE -eq 0) { Write-Host "  Flutter 의존성 설치 완료." -ForegroundColor Green }
         }
+    } else {
+        Write-Host "`n[2/2] flutter를 찾을 수 없습니다. Flutter SDK를 설치해 주세요: https://docs.flutter.dev/get-started/install" -ForegroundColor Red
     }
 } else {
-    Write-Host "`n[2/2] backend/fastapi 폴더가 없습니다. 건너뜁니다." -ForegroundColor Gray
+    Write-Host "`n[2/2] frontend/mobile-flutter 폴더가 없습니다. 건너뜁니다." -ForegroundColor Gray
 }
 
 Write-Host "`n=== 설치 스크립트 종료 ===" -ForegroundColor Cyan
