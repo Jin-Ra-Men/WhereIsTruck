@@ -25,6 +25,7 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
 
 ### Changed
+- 2025-03-07 `.cursor/rules/whereistruck-project.mdc` — §4.1 커밋 메시지에 Made-with:cursor 등 브랜딩·태그 금지 규칙 추가 (영구)
 - 2025-03-07 `docs/POSTGRES-GUIDE.md` → `docs/guides/POSTGRES-GUIDE.md` 로 이동. docs/guides/README.md, docs/DB-SCHEMA.md, docs/guides/TYPEORM-GUIDE.md, .cursor/rules 참조 경로 수정
 - 2025-03-07 `.cursor/rules/whereistruck-project.mdc` — §6 기술 가이드 지속 반영 규칙 추가 (추가·수정되는 언어·기술은 해당 가이드 MD에 지속 반영)
 - 2025-03-07 `shared/api-spec/README.md` — rest-api.md, realtime-events.md 링크 추가
