@@ -68,7 +68,34 @@ WhereIsTruck/
 
 ---
 
-## 2. 루트 디렉터리
+## 2. 다른 PC에서 클론 후 작업 시 — 저장소에 넣을 파일 / 제외할 파일
+
+다른 컴퓨터에서 저장소를 클론해 작업할 때 **필요한 파일만** 저장소에 두고, 나머지는 `.gitignore`로 제외합니다.
+
+### 2.1 저장소에 포함하는 파일 (필요한 것만)
+
+| 구분 | 포함 대상 |
+|------|-----------|
+| **소스·설정** | `backend/nest/`(package.json, tsconfig, src 등), `backend/fastapi/`(requirements.txt, app/), `frontend/` placeholder, `shared/` |
+| **문서** | README.md, SETUP.md, `docs/*.md` |
+| **환경** | `.env.example` (템플릿만), `.gitignore` |
+| **스크립트·인프라** | install-dependencies.ps1, `docker/docker-compose.yml` |
+| **프로젝트 룰** | `.cursor/rules/*.mdc` |
+
+- 의존성 패키지(`node_modules/`, 가상환경 등)는 **저장소에 넣지 않고**, 클론 후 해당 PC에서 `npm install`, `pip install -r requirements.txt` 등으로 설치합니다.
+
+### 2.2 저장소에서 제외하는 파일 (.gitignore)
+
+- **의존성:** `node_modules/`, `.venv/`, `venv/`
+- **환경·비밀:** `.env`, `commit_msg.txt`
+- **빌드·캐시:** `dist/`, `__pycache__/`, `*.pyc`, `.pytest_cache/`, `.npm`, `*.log`
+- **IDE·OS:** `.idea/`, `.vscode/`, `.DS_Store` 등
+
+상세 목록은 **루트 `.gitignore`**를 참고하면 됩니다. 새로 만든 파일이 위 “제외” 항목에 해당하면 커밋하지 않습니다.
+
+---
+
+## 3. 루트 디렉터리
 
 | 항목 | 설명 |
 |------|------|
@@ -79,7 +106,7 @@ WhereIsTruck/
 
 ---
 
-## 3. docs/ — 프로젝트 문서
+## 4. docs/ — 프로젝트 문서
 
 | 파일 | 용도 |
 |------|------|
@@ -99,7 +126,7 @@ WhereIsTruck/
 
 ---
 
-## 4. backend/ — 백엔드
+## 5. backend/ — 백엔드
 
 백엔드는 **NestJS**와 **FastAPI** 두 가지를 지원합니다. 실제 서비스에서는 하나를 주력으로 하거나, 역할을 나눠 사용할 수 있습니다.
 
@@ -127,7 +154,7 @@ WhereIsTruck/
 
 ---
 
-## 5. frontend/ — 모바일 앱
+## 6. frontend/ — 모바일 앱
 
 - **mobile-react/** — React Native. 지도(Google/Kakao), 실시간 소켓, 푸시 연동
 - **mobile-flutter/** — Flutter. 동일 기능을 Flutter로 구현할 때 사용
@@ -136,13 +163,13 @@ WhereIsTruck/
 
 ---
 
-## 6. shared/ — 공유 자원
+## 7. shared/ — 공유 자원
 
 - **api-spec/** — REST 경로, 쿼리 파라미터, WebSocket 이벤트명, 요청/응답 예시를 문서화. Nest와 FastAPI가 동일한 API 규약을 따르도록 할 때 활용합니다.
 
 ---
 
-## 7. docker/ — 로컬 인프라
+## 8. docker/ — 로컬 인프라
 
 - **docker-compose.yml** — PostgreSQL + PostGIS 이미지로 DB 서버 실행. 로컬에서 위치 쿼리 개발·테스트 시 사용합니다.  
 - 사용: `cd docker && docker-compose up -d`  
@@ -150,7 +177,7 @@ WhereIsTruck/
 
 ---
 
-## 8. 규칙 및 권장 사항
+## 9. 규칙 및 권장 사항
 
 - **환경 변수:** 비밀값·API 키는 `.env`에만 두고, `.env`는 Git에 올리지 않습니다. `.env.example`만 커밋합니다.
 - **API 일관성:** Nest와 FastAPI 중 어떤 것을 주력으로 하든, 경로·스키마는 **shared/api-spec**에 맞춥니다.
