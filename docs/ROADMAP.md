@@ -30,10 +30,10 @@
 
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
-| 1-1 | DB 스키마 설계 (User, Truck, Location, Favorite 등) | **[Cursor AI]** | ARCHITECTURE.md 기반으로 테이블·컬럼·PostGIS 타입 설계안 작성 |
+| 1-1 | ~~DB 스키마 설계 (User, Truck, Location, Favorite 등)~~ | **[Cursor AI]** | ~~ARCHITECTURE.md 기반으로 테이블·컬럼·PostGIS 타입 설계안 작성~~ |
 | 1-2 | 스키마 검토 및 확정 | **[직접]** | 설계안 검토 후 수정 요청 또는 확정 |
-| 1-3 | 마이그레이션/초기 스키마 적용 (SQL 또는 TypeORM) | **[Cursor AI]** | NestJS(TypeORM) 또는 초기 SQL 기준으로 마이그레이션/스키마 작성 |
-| 1-4 | REST API 스펙 정리 (경로, 요청/응답 예시) | **[Cursor AI]** | `shared/api-spec/` 에 트럭·위치·사용자·인증 등 API 목록·예시 작성 |
+| 1-3 | ~~마이그레이션/초기 스키마 적용 (SQL 또는 TypeORM)~~ | **[Cursor AI]** | ~~NestJS(TypeORM) 또는 초기 SQL 기준으로 마이그레이션/스키마 작성~~ |
+| 1-4 | ~~REST API 스펙 정리 (경로, 요청/응답 예시)~~ | **[Cursor AI]** | ~~`shared/api-spec/` 에 트럭·위치·사용자·인증 등 API 목록·예시 작성~~ |
 
 ---
 
