@@ -11,7 +11,7 @@ WhereIsTruck/
 ├── README.md                 # 프로젝트 개요, 기능, 기술 스택
 ├── SETUP.md                  # 환경 설정 및 의존성 설치 가이드
 ├── .env.example              # 환경 변수 예시 (복사 후 .env 로 사용)
-├── install-dependencies.ps1  # Node/Python 의존성 일괄 설치 스크립트
+├── install-dependencies.ps1  # NestJS 의존성 설치 스크립트
 ├── .cursor/
 │   └── rules/               # Cursor AI 룰 (한글 답변, 변경이력, 오류 관리)
 │       └── whereistruck-project.mdc
@@ -20,11 +20,12 @@ WhereIsTruck/
 │   ├── PROJECT_STRUCTURE.md  # 이 문서 — 프로젝트 구조 상세
 │   ├── ARCHITECTURE.md       # 시스템 아키텍처 및 데이터 흐름
 │   ├── DEVELOPMENT.md       # 로컬 실행, 브랜치, 배포 요약
+│   ├── ROADMAP.md            # 개발 로드맵 (순서, 직접 vs Cursor AI)
 │   ├── CHANGELOG.md          # 변경 이력 (상세 기록)
 │   └── ERRORS.md             # 오류 내역 (별도 관리)
 │
-├── backend/                  # 백엔드 서비스 (NestJS / FastAPI)
-│   ├── nest/                # NestJS API 서버
+├── backend/                  # 백엔드 (NestJS 단일)
+│   └── nest/                # NestJS API 서버
 │   │   ├── src/
 │   │   │   ├── main.ts
 │   │   │   ├── app.module.ts
@@ -37,22 +38,8 @@ WhereIsTruck/
 │   │   ├── package.json
 │   │   ├── tsconfig.json
 │   │   └── nest-cli.json
-│   │
-│   └── fastapi/             # FastAPI API 서버
-│       ├── app/
-│       │   ├── main.py
-│       │   ├── core/         # 설정, DB, 공통 유틸
-│       │   ├── api/
-│       │   │   └── v1/        # auth, trucks, locations, users
-│       │   ├── models/        # SQLAlchemy/GeoAlchemy 모델
-│       │   ├── schemas/       # Pydantic 스키마
-│       │   └── services/      # 비즈니스 로직
-│       └── requirements.txt
 │
-├── frontend/                # 모바일 앱 (둘 중 하나 또는 병행)
-│   ├── mobile-react/       # React Native
-│   │   ├── src/
-│   │   └── package.json
+├── frontend/                # 모바일 앱 (Flutter 단일)
 │   └── mobile-flutter/     # Flutter
 │       ├── lib/
 │       └── pubspec.yaml
@@ -76,13 +63,13 @@ WhereIsTruck/
 
 | 구분 | 포함 대상 |
 |------|-----------|
-| **소스·설정** | `backend/nest/`(package.json, tsconfig, src 등), `backend/fastapi/`(requirements.txt, app/), `frontend/` placeholder, `shared/` |
+| **소스·설정** | `backend/nest/`(package.json, tsconfig, src 등), `frontend/mobile-flutter/`, `shared/` |
 | **문서** | README.md, SETUP.md, `docs/*.md` |
 | **환경** | `.env.example` (템플릿만), `.gitignore` |
 | **스크립트·인프라** | install-dependencies.ps1, `docker/docker-compose.yml` |
 | **프로젝트 룰** | `.cursor/rules/*.mdc` |
 
-- 의존성 패키지(`node_modules/`, 가상환경 등)는 **저장소에 넣지 않고**, 클론 후 해당 PC에서 `npm install`, `pip install -r requirements.txt` 등으로 설치합니다.
+- 의존성 패키지(`node_modules/` 등)는 **저장소에 넣지 않고**, 클론 후 해당 PC에서 `npm install`, `flutter pub get` 등으로 설치합니다.
 
 ### 2.2 저장소에서 제외하는 파일 (.gitignore)
 
@@ -100,9 +87,9 @@ WhereIsTruck/
 | 항목 | 설명 |
 |------|------|
 | **README.md** | 서비스 소개, 타겟, 핵심 기능(사용자/사장님), 기술 스택, 아키텍처 요약, 환경 설정 요구사항 |
-| **SETUP.md** | Node.js / Python / PostgreSQL 설치, `npm install`·`pip install` 방법, 환경 변수 정리 |
+| **SETUP.md** | Node.js / Flutter / PostgreSQL 설치, `npm install`·`flutter pub get` 방법, 환경 변수 정리 |
 | **.env.example** | Map API Key, `DATABASE_URL`, Firebase 등 필수 환경 변수 템플릿. 복사해 `.env` 로 사용 |
-| **install-dependencies.ps1** | PowerShell로 `npm install`(backend/nest) 및 `pip install -r requirements.txt`(backend/fastapi) 실행 |
+| **install-dependencies.ps1** | PowerShell로 `npm install`(backend/nest) 실행 |
 
 ---
 
@@ -113,6 +100,7 @@ WhereIsTruck/
 | **PROJECT_STRUCTURE.md** | 저장소 폴더 구조, 각 디렉터리 역할, 규칙 (현재 문서) |
 | **ARCHITECTURE.md** | 서비스 아키텍처, 위치 서비스·인증·실시간·DB(PostGIS) 흐름, 비즈니스 로직 개요 |
 | **DEVELOPMENT.md** | 로컬 실행 순서, DB/백엔드/프론트 실행 방법, 브랜치/배포 정책 요약 |
+| **ROADMAP.md** | 개발 로드맵 — 순서, 직접 할 일 vs Cursor AI 맡길 일 |
 | **CHANGELOG.md** | 변경 이력 — 날짜·범위·내용을 상세히 기록 (Cursor 룰 준수) |
 | **ERRORS.md** | 오류 내역 — 증상·원인·해결을 별도 관리 (Cursor 룰 준수) |
 
@@ -128,9 +116,9 @@ WhereIsTruck/
 
 ## 5. backend/ — 백엔드
 
-백엔드는 **NestJS**와 **FastAPI** 두 가지를 지원합니다. 실제 서비스에서는 하나를 주력으로 하거나, 역할을 나눠 사용할 수 있습니다.
+백엔드는 **NestJS 단일**로 운영합니다. REST API와 Socket.io 실시간을 한 서비스에서 제공합니다.
 
-### 4.1 backend/nest/ (NestJS)
+### 5.1 backend/nest/ (NestJS)
 
 - **역할:** REST API + Socket.io 실시간, PostgreSQL(TypeORM) 연동
 - **실행:** `cd backend/nest && npm install && npm run start:dev` (기본 포트 3000)
@@ -141,31 +129,19 @@ WhereIsTruck/
   - **users** — 일반 사용자·사장님 프로필, 찜, 추천
   - **realtime** — Socket.io로 영업 시작/종료, 재고 상태, 위치 업데이트 브로드캐스트
 
-### 4.2 backend/fastapi/ (FastAPI)
-
-- **역할:** REST API, PostgreSQL(PostGIS) + GeoAlchemy2, 실시간은 python-socketio 등으로 확장 가능
-- **실행:** `cd backend/fastapi && pip install -r requirements.txt && uvicorn app.main:app --reload` (기본 8000)
-- **디렉터리:**
-  - **app/core** — 설정, DB 연결, 공통 의존성
-  - **app/api/v1** — 버전별 라우트 (auth, trucks, locations, users)
-  - **app/models** — DB 모델 (위치 필드는 PostGIS/GeoAlchemy2)
-  - **app/schemas** — 요청/응답 Pydantic 스키마
-  - **app/services** — 비즈니스 로직 (위치 쿼리, 인증 검증 등)
-
 ---
 
-## 6. frontend/ — 모바일 앱
+## 6. frontend/ — 모바일 앱 (Flutter)
 
-- **mobile-react/** — React Native. 지도(Google/Kakao), 실시간 소켓, 푸시 연동
-- **mobile-flutter/** — Flutter. 동일 기능을 Flutter로 구현할 때 사용
+**Flutter 단일**로 앱을 개발합니다. 지도(Map API), 실시간 소켓, 푸시(FCM)를 중심으로 구성합니다.
 
-실제 앱 코드는 각각 `npx react-native init` 또는 `flutter create` 로 프로젝트를 생성한 뒤, 위 폴더에 맞춰 구성합니다. 자세한 실행 방법은 **DEVELOPMENT.md**를 참고합니다.
+실제 앱 코드는 `flutter create` 로 프로젝트를 생성한 뒤, `frontend/mobile-flutter` 폴더에 맞춰 구성합니다. 자세한 실행 방법은 **DEVELOPMENT.md**를 참고합니다.
 
 ---
 
 ## 7. shared/ — 공유 자원
 
-- **api-spec/** — REST 경로, 쿼리 파라미터, WebSocket 이벤트명, 요청/응답 예시를 문서화. Nest와 FastAPI가 동일한 API 규약을 따르도록 할 때 활용합니다.
+- **api-spec/** — REST 경로, 쿼리 파라미터, WebSocket 이벤트명, 요청/응답 예시를 문서화. NestJS API가 이 규약을 따르도록 유지합니다.
 
 ---
 
@@ -180,8 +156,8 @@ WhereIsTruck/
 ## 9. 규칙 및 권장 사항
 
 - **환경 변수:** 비밀값·API 키는 `.env`에만 두고, `.env`는 Git에 올리지 않습니다. `.env.example`만 커밋합니다.
-- **API 일관성:** Nest와 FastAPI 중 어떤 것을 주력으로 하든, 경로·스키마는 **shared/api-spec**에 맞춥니다.
-- **위치 데이터:** 위경도·반경 검색은 PostgreSQL + PostGIS(또는 GeoAlchemy2)로 처리하고, 인덱스를 권장합니다.
+- **API 일관성:** NestJS API 경로·스키마는 **shared/api-spec**에 맞춥니다.
+- **위치 데이터:** 위경도·반경 검색은 PostgreSQL + PostGIS로 처리하고, 인덱스를 권장합니다.
 - **문서 갱신:** 폴더/모듈을 추가·변경할 때는 이 문서(PROJECT_STRUCTURE.md)와 **ARCHITECTURE.md**를 함께 수정합니다.
 
 ---

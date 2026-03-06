@@ -21,7 +21,7 @@
 | 0-1 | PostgreSQL + PostGIS 설치 또는 Docker 실행 | **[직접]** | 로컬 DB 준비. `docker/docker-compose.yml` 사용 시 `docker-compose up -d` 후 DB 생성·PostGIS 확장 |
 | 0-2 | Google Maps API Key 또는 Kakao Map Key 발급 | **[직접]** | 각 서비스 콘솔에서 키 발급·제한 설정. `.env`에 `MAP_API_KEY` 등 입력 |
 | 0-3 | Firebase 프로젝트 생성 및 Admin SDK 키 준비 | **[직접]** | Firebase Console에서 프로젝트 생성, 서비스 계정 JSON 또는 키 값을 `.env`에 반영 |
-| 0-4 | 백엔드 주력 선택 (NestJS vs FastAPI) | **[직접]** | 하나를 메인으로 할지, 둘 다 유지할지 결정. Cursor는 선택에 맞춰 구현 가능 |
+| 0-4 | Flutter SDK 설치 및 로컬 빌드 환경 준비 | **[직접]** | Flutter 설치, Android SDK/iOS 설정, `flutter doctor`로 점검 |
 
 ---
 
@@ -31,7 +31,7 @@
 |------|------|------|------|
 | 1-1 | DB 스키마 설계 (User, Truck, Location, Favorite 등) | **[Cursor AI]** | ARCHITECTURE.md 기반으로 테이블·컬럼·PostGIS 타입 설계안 작성 |
 | 1-2 | 스키마 검토 및 확정 | **[직접]** | 설계안 검토 후 수정 요청 또는 확정 |
-| 1-3 | 마이그레이션/초기 스키마 적용 (SQL 또는 TypeORM/GeoAlchemy) | **[Cursor AI]** | 선택한 백엔드에 맞춰 마이그레이션 파일 또는 초기 SQL 작성 |
+| 1-3 | 마이그레이션/초기 스키마 적용 (SQL 또는 TypeORM) | **[Cursor AI]** | NestJS(TypeORM) 또는 초기 SQL 기준으로 마이그레이션/스키마 작성 |
 | 1-4 | REST API 스펙 정리 (경로, 요청/응답 예시) | **[Cursor AI]** | `shared/api-spec/` 에 트럭·위치·사용자·인증 등 API 목록·예시 작성 |
 
 ---
@@ -40,7 +40,7 @@
 
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
-| 2-1 | 인증 모듈 (Firebase 토큰 검증, 사장님/일반 사용자 구분) | **[Cursor AI]** | Nest 또는 FastAPI에서 미들웨어/가드·의존성 구현 |
+| 2-1 | 인증 모듈 (Firebase 토큰 검증, 사장님/일반 사용자 구분) | **[Cursor AI]** | NestJS에서 가드/미들웨어 구현 |
 | 2-2 | 트럭 CRUD (등록, 수정, 조회, 메뉴·사진) | **[Cursor AI]** | 컨트롤러·서비스·모델 구현. 스펙은 `shared/api-spec` 참고 |
 | 2-3 | 위치 API — 반경 n km 내 트럭 조회 (PostGIS) | **[Cursor AI]** | 위경도·반경 입력받아 공간 쿼리로 트럭 목록 반환 |
 | 2-4 | 사용자·찜 API (프로필, 찜 목록, 추천) | **[Cursor AI]** | 사용자/사장님 프로필, 찜 추가·삭제·목록 API |
@@ -53,16 +53,16 @@
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
 | 3-1 | 실시간 이벤트 스펙 (영업 시작/종료, 위치, 재고 공지) | **[Cursor AI]** | 이벤트명·페이로드 형식을 `shared/api-spec` 또는 docs에 정리 |
-| 3-2 | NestJS 또는 FastAPI 쪽 WebSocket/Socket.io 서버 구현 | **[Cursor AI]** | 영업 시작/종료, 위치 업데이트, 재고 공지 브로드캐스트 |
+| 3-2 | NestJS Socket.io 서버 구현 | **[Cursor AI]** | 영업 시작/종료, 위치 업데이트, 재고 공지 브로드캐스트 |
 | 3-3 | 클라이언트 연동 방법 문서화 | **[Cursor AI]** | 모바일에서 접속 URL·이벤트 구독 방법 문서 |
 
 ---
 
-## Phase 4. 모바일 앱 (React Native 또는 Flutter)
+## Phase 4. 모바일 앱 (Flutter)
 
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
-| 4-1 | 프레임워크·프로젝트 생성 (React Native / Flutter) | **[직접]** 또는 **[Cursor AI]** | `npx react-native init` 또는 `flutter create` 실행. Cursor가 폴더 구조·설정 정리 도와줄 수 있음 |
+| 4-1 | Flutter 프로젝트 생성·구성 | **[직접]** + **[Cursor AI]** | `flutter create` 실행은 **[직접]**, 프로젝트 구조·패키지·설정 정리는 **[Cursor AI]** |
 | 4-2 | 지도 화면 + 주변 트럭 목록 (Map API 연동) | **[Cursor AI]** | 현재 위치·반경 내 트럭 조회 API 호출, 지도에 마커 표시 |
 | 4-3 | 트럭 상세·메뉴·사진 화면 | **[Cursor AI]** | 상세 API 연동, UI 레이아웃·이미지 표시 |
 | 4-4 | 찜·단골 트럭 목록 및 영업 시작 알림 요청 | **[Cursor AI]** | 찜 API 연동, 푸시 토큰 등록 요청 플로우 (실제 푸시 발송은 백엔드/Firebase) |
@@ -104,9 +104,9 @@
 
 ## 요약: 반드시 직접 할 일만 모음
 
-- **Phase 0:** PostgreSQL/Docker, Map API 키, Firebase 프로젝트·키, 백엔드 주력 선택  
+- **Phase 0:** PostgreSQL/Docker, Map API 키, Firebase 프로젝트·키, Flutter 로컬 빌드 환경 준비  
 - **Phase 1:** DB 스키마 최종 확정  
-- **Phase 4:** (선택) 프로젝트 생성 실행, FCM 앱 등록  
+- **Phase 4:** Flutter 프로젝트 생성 실행, FCM 앱 등록  
 - **Phase 5:** 사장님 검증 정책·기준 결정  
 - **Phase 6:** 배포 서비스 선택, DB·백엔드 호스팅, 도메인·HTTPS  
 - **Phase 7:** 모니터링 도구 선택, 비즈니스 정책 결정  

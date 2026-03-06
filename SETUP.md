@@ -10,10 +10,10 @@ README.md에 명시된 기술 스택을 로컬에서 사용하기 위한 설치 
 - **다운로드:** https://nodejs.org/
 - LTS 버전 설치 후 터미널에서 `node -v`, `npm -v` 확인
 
-### Python (FastAPI)
-- **다운로드:** https://www.python.org/downloads/
-- 설치 시 **"Add Python to PATH"** 체크
-- 터미널에서 `python --version`, `pip --version` 확인
+### Flutter (모바일 앱)
+- **다운로드:** https://docs.flutter.dev/get-started/install
+- 설치 후 `flutter --version` 확인
+- Android Studio(또는 Android SDK), Xcode(macOS) 등 플랫폼별 요구사항은 Flutter 공식 가이드를 따릅니다.
 
 ### PostgreSQL + PostGIS (Database)
 - **다운로드:** https://www.postgresql.org/download/windows/
@@ -44,9 +44,10 @@ cd backend\nest
 npm install
 cd ..\..
 
-# FastAPI (backend/fastapi)
-cd backend\fastapi
-pip install -r requirements.txt
+# Flutter (frontend/mobile-flutter)
+# ※ 실제 Flutter 프로젝트를 생성/구성한 뒤 실행하세요.
+cd frontend\mobile-flutter
+flutter pub get
 cd ..\..
 ```
 
@@ -68,9 +69,8 @@ cd ..\..
 
 | 기술 스택 | 다운로드/설치 |
 |-----------|----------------|
-| Frontend (React Native/Flutter) | `frontend/mobile-react`, `frontend/mobile-flutter` — 별도 프로젝트 생성 시 해당 SDK 설치 |
+| Frontend (Flutter) | `frontend/mobile-flutter` — Flutter SDK 설치 후 `flutter pub get` |
 | Backend Node (NestJS) | `backend/nest/package.json` → `cd backend/nest && npm install` |
-| Backend Python (FastAPI) | `backend/fastapi/requirements.txt` → `cd backend/fastapi && pip install -r requirements.txt` |
 | Database (PostgreSQL/PostGIS) | 위 1번에서 설치 또는 `docker/docker-compose.yml` 사용 |
 | Real-time (Socket.io) | Nest 패키지에 포함 |
 | Infrastructure (AWS/GCP) | 콘솔에서 계정·리소스 생성 |
