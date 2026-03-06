@@ -1,0 +1,1 @@
+"""WhereIsTruck FastAPI Application."""

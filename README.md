@@ -43,6 +43,14 @@
 
 ---
 
+## 📁 프로젝트 구조 및 문서
+* **폴더 구조:** [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) — 디렉터리 설명, 백엔드/프론트/공유 자원
+* **아키텍처:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — 시스템 구성, 위치·인증·실시간 로직
+* **개발 가이드:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) — 로컬 실행, 환경 변수, 브랜치·배포 요약
+* **환경 설정:** [SETUP.md](SETUP.md) — Node.js / Python / PostgreSQL 설치 및 의존성 설치
+
+---
+
 ## ⚙️ 설정 (Environment)
 이 프로젝트를 실행하기 위해서는 아래와 같은 환경 설정이 필요합니다.
 * **Map API:** Google Maps API Key 또는 Kakao Map Key

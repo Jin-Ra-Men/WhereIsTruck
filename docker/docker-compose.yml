@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: whereistruck
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: whereistruck
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
