@@ -44,6 +44,7 @@
 ---
 
 ## 📁 프로젝트 구조 및 문서
+* **로드맵:** [docs/ROADMAP.md](docs/ROADMAP.md) — 개발 순서, 직접 할 일 vs Cursor AI 맡길 일
 * **폴더 구조:** [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) — 디렉터리 설명, 백엔드/프론트/공유 자원
 * **아키텍처:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — 시스템 구성, 위치·인증·실시간 로직
 * **개발 가이드:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) — 로컬 실행, 환경 변수, 브랜치·배포 요약
