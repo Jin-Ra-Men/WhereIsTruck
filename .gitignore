@@ -1,18 +1,39 @@
-# Dependencies
+# ============================================
+# 클론 후 다른 PC에서 작업 시 필요한 파일만 저장소에 두고, 나머지는 제외합니다.
+# (필요 목록: docs/PROJECT_STRUCTURE.md 또는 SETUP.md 참고)
+# ============================================
+
+# Dependencies (다른 PC에서는 npm install / pip install 로 설치)
 node_modules/
 
-# Environment
-.env
+# Environment (.env는 이번 한 번만 커밋함. 이후 .env 변경분은 커밋하지 않음)
+.env.local
+.env.*.local
+commit_msg.txt
 
 # Build / runtime
 dist/
+build/
 __pycache__/
 *.pyc
+*.pyo
 .venv/
 venv/
+*.egg-info/
+.eggs/
+
+# Logs / cache / test
+*.log
+.npm
+.pytest_cache/
+.coverage
+htmlcov/
+*.lcov
 
 # IDE / OS
 .idea/
 .vscode/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
