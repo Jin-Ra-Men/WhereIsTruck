@@ -9,6 +9,7 @@
 
 | 표기 | 의미 |
 |------|------|
+| ~~취소선~~ | 완료된 항목 |
 | **[직접]** | 본인이 직접 준비하거나 결정·작업해야 하는 항목 (계정, 키, 비즈니스 결정, 배포 등) |
 | **[Cursor AI]** | Cursor AI에게 요청해서 코드·문서·설정을 작성·수정할 수 있는 항목 |
 
@@ -18,7 +19,7 @@
 
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
-| 0-1 | PostgreSQL + PostGIS 설치 또는 Docker 실행 | **[직접]** | 로컬 DB 준비. `docker/docker-compose.yml` 사용 시 `docker-compose up -d` 후 DB 생성·PostGIS 확장 |
+| 0-1 | ~~PostgreSQL + PostGIS 설치 또는 Docker 실행~~ | **[직접]** | ~~로컬 DB 준비. `docker/docker-compose.yml` 사용 시 `docker-compose up -d` 후 DB 생성·PostGIS 확장~~ |
 | 0-2 | Google Maps API Key 또는 Kakao Map Key 발급 | **[직접]** | 각 서비스 콘솔에서 키 발급·제한 설정. `.env`에 `MAP_API_KEY` 등 입력 |
 | 0-3 | Firebase 프로젝트 생성 및 Admin SDK 키 준비 | **[직접]** | Firebase Console에서 프로젝트 생성, 서비스 계정 JSON 또는 키 값을 `.env`에 반영 |
 | 0-4 | Flutter SDK 설치 및 로컬 빌드 환경 준비 | **[직접]** | Flutter 설치, Android SDK/iOS 설정, `flutter doctor`로 점검 |

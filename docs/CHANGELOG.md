@@ -16,6 +16,8 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
 
 ### Changed
+- 2025-03-07 `.cursor/rules/whereistruck-project.mdc` — §5 로드맵 완료 표시 규칙 추가 (완료된 스텝은 docs/ROADMAP.md에서 취소선 처리)
+- 2025-03-07 `docs/CHANGELOG.md`, `docs/ERRORS.md` — 의존성 설치 관련 변경이력·오류 기록 항목 삭제
 - 2025-03-06 `.cursor/rules/whereistruck-project.mdc` — 커밋 규칙 추가 (한글 메시지·요약형, 커밋 전 브랜치 선택 질의 후 해당 브랜치에만 커밋)
 - 2025-03-06 `.gitignore` — 클론 후 작업에 불필요한 항목 정리 (빌드·캐시·로그·임시 등), 상단 설명 추가
 - 2025-03-06 `docs/PROJECT_STRUCTURE.md` — §2 추가: 다른 PC 클론 시 저장소 포함/제외 기준 정리, 섹션 번호 3~9로 조정
