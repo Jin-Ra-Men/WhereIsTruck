@@ -22,6 +22,11 @@ README.md에 명시된 기술 스택을 로컬에서 사용하기 위한 설치 
   ```sql
   CREATE EXTENSION IF NOT EXISTS postgis;
   ```
+- **DB 비밀번호:** 앱 접속용 계정 `whereistruck` 및 postgres 슈퍼유저는 프로젝트 기본 비밀번호 `WhereIsTrucksOwnerIsJinLee` 사용. postgres 비밀번호를 맞추려면 (설치 시 다른 비밀번호를 썼을 경우) 관리자 권한 터미널에서:
+  ```powershell
+  & "C:\Program Files\PostgreSQL\17\bin\psql.exe" -U postgres -c "ALTER USER postgres PASSWORD 'WhereIsTrucksOwnerIsJinLee';"
+  ```
+  (비밀번호 입력 프롬프트에 기존 postgres 비밀번호 입력)
 
 ---
 
