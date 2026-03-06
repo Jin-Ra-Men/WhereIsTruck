@@ -10,6 +10,7 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 
 ### Added
 - 2025-03-06 `.cursor/rules/whereistruck-project.mdc` — Cursor 룰 추가 (답변 한글, 변경이력 상세 기록, 오류 내역 별도 관리)
+- 2025-03-06 `docs/ROADMAP.md` — 개발 로드맵 (순서, [직접] vs [Cursor AI] 표기)
 - 2025-03-06 `.env` — 이번 한 번만 커밋 (초기 템플릿, 이후 변경분 미커밋)
 - 2025-03-06 `docs/CHANGELOG.md` — 변경 이력 문서 생성 및 형식 정의
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
