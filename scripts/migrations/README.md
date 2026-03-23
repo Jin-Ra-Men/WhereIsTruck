@@ -22,3 +22,4 @@ psql -U whereistruck -h localhost -d whereistruck -f 001_initial_schema.sql
 ## 파일
 
 - **001_initial_schema.sql** — users, trucks, locations, favorites, reviews 테이블 및 인덱스·트리거 생성. PostGIS 확장 사용.
+- **002_owner_access_requests.sql** — 사장님 권한 2트랙(추천 요청, 유료 즉시 권한 결제 요청) 테이블 및 인덱스·트리거 생성.

@@ -8,6 +8,8 @@ import { UsersModule } from './modules/users/users.module';
 import {
   Favorite,
   Location,
+  OwnerPaymentRequest,
+  OwnerRecommendationRequest,
   Review,
   Truck,
   User,
@@ -18,7 +20,15 @@ import {
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
-      entities: [User, Truck, Location, Favorite, Review],
+      entities: [
+        User,
+        Truck,
+        Location,
+        Favorite,
+        Review,
+        OwnerRecommendationRequest,
+        OwnerPaymentRequest,
+      ],
       synchronize: false, // 스키마는 scripts/migrations/001_initial_schema.sql 로 적용
       logging: process.env.NODE_ENV === 'development',
     }),
