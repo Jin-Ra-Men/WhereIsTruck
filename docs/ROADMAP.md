@@ -20,9 +20,9 @@
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
 | 0-1 | ~~PostgreSQL + PostGIS 설치 또는 Docker 실행~~ | **[직접]** | ~~로컬 DB 준비. `docker/docker-compose.yml` 사용 시 `docker-compose up -d` 후 DB 생성·PostGIS 확장~~ |
-| 0-2 | Google Maps API Key 또는 Kakao Map Key 발급 | **[직접]** | 각 서비스 콘솔에서 키 발급·제한 설정. `.env`에 `MAP_API_KEY` 등 입력 |
-| 0-3 | Firebase 프로젝트 생성 및 Admin SDK 키 준비 | **[직접]** | Firebase Console에서 프로젝트 생성, 서비스 계정 JSON 또는 키 값을 `.env`에 반영 |
-| 0-4 | Flutter SDK 설치 및 로컬 빌드 환경 준비 | **[직접]** | Flutter 설치, Android SDK/iOS 설정, `flutter doctor`로 점검 |
+| 0-2 | ~~Google Maps API Key 또는 Kakao Map Key 발급~~ | **[직접]** | ~~각 서비스 콘솔에서 키 발급·제한 설정. `.env`에 `MAP_API_KEY` 등 입력~~ |
+| 0-3 | ~~Firebase 프로젝트 생성 및 Admin SDK 키 준비~~ | **[직접]** | ~~Firebase Console에서 프로젝트 생성, 서비스 계정 JSON 또는 키 값을 `.env`에 반영~~ |
+| 0-4 | ~~Flutter SDK 설치 및 로컬 빌드 환경 준비~~ | **[직접]** | ~~Flutter 설치, Android SDK/iOS 설정, `flutter doctor`로 점검~~ |
 
 ---
 
@@ -78,11 +78,11 @@
 
 | 순서 | 항목 | 담당 | 설명 |
 |------|------|------|------|
-| 4-8 | 관리자 프로그램 아키텍처 확정 (기존 기술 재사용) | **[직접]** + **[Cursor AI]** | Flutter Web + 기존 NestJS Admin API 조합으로 확정 (신규 프레임워크 도입 없음) |
-| 4-9 | 관리자 인증/권한(RBAC) 설계 | **[Cursor AI]** | admin role 전용 접근 제어(계정 관리, 트럭 상태 관리 권한 분리) |
-| 4-10 | 관리자 웹 UI 구현 (계정/트럭 관리) | **[Cursor AI]** | 사용자/사장님 계정 목록·검색·상태 변경, 트럭 영업 상태 제어 화면 |
-| 4-11 | 관리자용 API 구현 (NestJS) | **[Cursor AI]** | `/admin/users`, `/admin/owners`, `/admin/trucks` 등 운영 API 구현 |
-| 4-12 | 운영 감사 로그(Audit Log) 추가 | **[Cursor AI]** | 누가/언제/무엇을 변경했는지 기록해 운영 추적 가능하게 구성 |
+| 4-8 | ~~관리자 프로그램 아키텍처 확정 (기존 기술 재사용)~~ | **[직접]** + **[Cursor AI]** | ~~Flutter Web + 기존 NestJS Admin API 조합으로 확정 (신규 프레임워크 도입 없음)~~ |
+| 4-9 | ~~관리자 인증/권한(RBAC) 설계~~ | **[Cursor AI]** | ~~admin role 전용 접근 제어(계정 관리, 트럭 상태 관리 권한 분리)~~ |
+| 4-10 | ~~관리자 웹 UI 구현 (계정/트럭 관리)~~ | **[Cursor AI]** | ~~사용자/사장님 계정 목록·검색·상태 변경, 트럭 영업 상태 제어 화면~~ |
+| 4-11 | ~~관리자용 API 구현 (NestJS)~~ | **[Cursor AI]** | ~~`/admin/users`, `/admin/owners`, `/admin/trucks` 등 운영 API 구현~~ |
+| 4-12 | ~~운영 감사 로그(Audit Log) 추가~~ | **[Cursor AI]** | ~~누가/언제/무엇을 변경했는지 기록해 운영 추적 가능하게 구성~~ |
 
 ---
 

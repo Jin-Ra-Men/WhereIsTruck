@@ -12,6 +12,9 @@ node_modules/
 .env.*.local
 commit_msg.txt
 
+# Firebase Admin SDK 서비스 계정 키(JSON) — 보안상 절대 커밋 금지
+*firebase-adminsdk-*.json
+
 # Build / runtime
 dist/
 build/

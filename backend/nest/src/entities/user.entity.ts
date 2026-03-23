@@ -19,7 +19,7 @@ export class User {
   firebase_uid!: string;
 
   @Column({ type: 'varchar', length: 20, default: 'user' })
-  role!: string; // 'user' | 'owner'
+  role!: string; // 'user' | 'owner' | 'admin'
 
   @Column({ type: 'varchar', length: 100, nullable: true })
   display_name!: string | null;
