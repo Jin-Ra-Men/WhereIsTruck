@@ -46,6 +46,7 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
 
 ### Changed
+- 2026-03-23 `.gitignore` — Firebase 클라이언트 설정 파일(`google-services.json`, `GoogleService-Info.plist`) 커밋 제외 규칙 추가
 - 2026-03-23 `frontend/mobile-flutter/lib/main.dart` — 주변 트럭/관리자 탭 네비게이션 추가
 - 2026-03-23 `frontend/mobile-flutter/lib/main.dart` — Android 시작 시 Firebase 익명 로그인 + FCM 토큰 등록 초기화 추가
 - 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/` — Kakao 지도 뷰를 web/stub로 분리(`kakao_map_view_web.dart`, `kakao_map_view_stub.dart`)해 Android 빌드에서 `dart:html` 제외

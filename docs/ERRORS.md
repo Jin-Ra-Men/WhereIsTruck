@@ -26,3 +26,4 @@
 | 2026-03-23 | Android FCM 연동 검증 중 `flutter build apk --debug` 실행 | `[!] No Android SDK found. Try setting the ANDROID_HOME environment variable.` | 로컬 환경에 Android SDK가 설치/연결되지 않음 | Android Studio에서 SDK 설치 후 `flutter config --android-sdk <SDK 경로>` 또는 `ANDROID_HOME` 설정 예정 |
 | 2026-03-23 | Android APK 빌드(`assembleDebug`) | `Could not find method jvmTarget() for arguments [17]` | Groovy Gradle 변환 후 Kotlin 옵션 대입 문법 불일치 | `android/app/build.gradle`에서 `jvmTarget = JavaVersion.VERSION_17.toString()`로 수정 |
 | 2026-03-23 | Android APK 빌드(`assembleDebug`) | `Dart library 'dart:html' is not available on this platform.` | 웹 전용 Kakao 지도 코드가 Android 빌드 경로에 포함됨 | Kakao 지도 뷰를 web/stub 파일로 분리하고 조건부 import 적용 |
+| 2026-03-23 | Android FCM 구성 커밋/푸시 후 검토 | `frontend/mobile-flutter/android/app/google-services.json`가 원격 커밋에 포함됨 | Firebase client 설정 파일 커밋 제외 규칙 미흡 | `.gitignore`에 `**/google-services.json`, `**/GoogleService-Info.plist` 추가 및 히스토리에서 파일 제거/강제 푸시 수행 |
