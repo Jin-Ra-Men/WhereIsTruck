@@ -120,6 +120,29 @@ Firebase 로그인은 클라이언트에서 수행하고, 백엔드는 **ID 토�
 }
 ```
 
+### POST /auth/owner/approve-payment
+
+**요청 헤더:** `x-admin-token: <ADMIN_API_KEY>`
+
+**요청 body 예시:**
+
+```json
+{
+  "payment_request_id": "pay_req_123",
+  "approved": true
+}
+```
+
+**응답 (200) 예시:**
+
+```json
+{
+  "payment_request_id": "pay_req_123",
+  "status": "paid",
+  "user_role": "owner"
+}
+```
+
 ---
 
 ## 4. 사용자 (Users)
