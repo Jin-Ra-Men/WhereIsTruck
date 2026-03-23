@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../core/config/api_base_url.dart';
 import '../data/locations_api_client.dart';
 import '../models/nearby_trucks_models.dart';
-import 'kakao_map_view.dart';
+import 'kakao_map_view_stub.dart'
+    if (dart.library.html) 'kakao_map_view_web.dart';
 import '../../trucks/ui/truck_detail_page.dart';
 
 class NearbyTrucksPage extends StatefulWidget {

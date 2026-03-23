@@ -15,6 +15,7 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/models/truck_models.dart` — 트럭 상세 응답 모델 추가
 - 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/data/trucks_api_client.dart` — `GET /trucks/:id` 트럭 상세 API 클라이언트 추가
 - 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/ui/truck_detail_page.dart` — 트럭 상세/메뉴/사진 화면(cover_image_url, menu_summary) 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/core/firebase/fcm_registration_service.dart` — Android FCM 토큰 발급/갱신 및 백엔드(`/users/me`) 등록 서비스 추가
 - 2026-03-07 `backend/nest/src/modules/admin/` — 관리자 API 모듈 추가 (`/admin/users`, `/admin/owners`, `/admin/trucks`, `/admin/audit-logs`)
 - 2026-03-07 `backend/nest/src/common/guards/admin-role.guard.ts` — admin role 전용 접근 제어 가드 추가
 - 2026-03-07 `backend/nest/src/entities/audit-log.entity.ts` — 운영 감사 로그 엔티티 추가
@@ -46,8 +47,14 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 
 ### Changed
 - 2026-03-23 `frontend/mobile-flutter/lib/main.dart` — 주변 트럭/관리자 탭 네비게이션 추가
-- 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/kakao_map_view.dart` — Kakao 지도에 open 트럭 마커 표시 구현(플랫폼 뷰 없이 JS DOM 오버레이)
+- 2026-03-23 `frontend/mobile-flutter/lib/main.dart` — Android 시작 시 Firebase 익명 로그인 + FCM 토큰 등록 초기화 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/` — Kakao 지도 뷰를 web/stub로 분리(`kakao_map_view_web.dart`, `kakao_map_view_stub.dart`)해 Android 빌드에서 `dart:html` 제외
 - 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/nearby_trucks_page.dart` — 트럭 목록 클릭 시 트럭 상세 화면(4-3)으로 이동하도록 연결
+- 2026-03-23 `frontend/mobile-flutter/android/`, `frontend/mobile-flutter/ios/` — Android/iOS 플랫폼 생성 및 Gradle Groovy 전환, Android/iOS 앱 식별자(`com.whereistruck.mobile`) 통일
+- 2026-03-23 `frontend/mobile-flutter/android/app/build.gradle` — Groovy 설정에서 Kotlin `jvmTarget` 대입 문법을 호환형(`jvmTarget = ...`)으로 수정
+- 2026-03-23 `frontend/mobile-flutter/android/app/src/main/AndroidManifest.xml` — FCM 동작을 위한 `INTERNET`, `POST_NOTIFICATIONS` 권한 추가
+- 2026-03-23 `frontend/mobile-flutter/pubspec.yaml` — Firebase 패키지(`firebase_core`, `firebase_auth`, `firebase_messaging`) 의존성 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/core/config/api_base_url.dart` — Android 기본 API URL을 에뮬레이터 경로(`10.0.2.2:3000`)로 자동 분기
 - 2026-03-23 `docs/ROADMAP.md` — Phase 0-2(카카오/구글 Map API 키 발급) 완료 취소선 처리
 - 2026-03-23 `docs/ROADMAP.md` — Phase 0-4(Flutter SDK 설치/빌드 환경) 완료 취소선 처리
 - 2026-03-23 `.env` — Firebase Admin SDK용 `GOOGLE_APPLICATION_CREDENTIALS` 경로 설정

@@ -1,0 +1,44 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+
+    // google-services plugin: google-services.json을 읽어 FCM 등 설정을 자동 구성합니다.
+    id "com.google.gms.google-services"
+}
+
+android {
+    namespace "com.whereistruck.mobile"
+    compileSdk flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    defaultConfig {
+        // Android applicationId (Firebase의 Android 앱 식별자)
+        applicationId "com.whereistruck.mobile"
+        minSdk flutter.minSdkVersion
+        targetSdk flutter.targetSdkVersion
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // debug keystore로도 동작하도록 기본 설정을 유지합니다.
+            signingConfig signingConfigs.getByName("debug")
+        }
+    }
+}
+
+flutter {
+    source "../.."
+}
+

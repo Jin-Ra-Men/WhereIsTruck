@@ -132,7 +132,6 @@ class _KakaoMapViewState extends State<KakaoMapView> {
         widget.trucks
             .map(
               (t) => <String, dynamic>{
-                // backend `GET /locations/nearby`는 open 트럭만 내려줍니다.
                 'lat': t.lat,
                 'lng': t.lng,
                 'name': t.truckName,
@@ -146,7 +145,6 @@ class _KakaoMapViewState extends State<KakaoMapView> {
   var el = document.getElementById('$_viewContainerId');
   if(!el){ return; }
 
-  // 기존 마커 제거
   if(window.__whereistruckMarkers){
     window.__whereistruckMarkers.forEach(function(m){ m.setMap(null); });
   }
