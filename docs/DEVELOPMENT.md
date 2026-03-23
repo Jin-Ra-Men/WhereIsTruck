@@ -94,7 +94,16 @@ Windows PowerShell에서 루트의 스크립트로 NestJS 의존성을 설치할
 
 ---
 
-## 6. 문서 및 구조
+## 6. 운영 관리자 프로그램 (개발 원칙)
+
+- **형태:** Flutter Web 관리자 콘솔
+- **기술 정책:** 새로운 프레임워크 도입 없이 기존 기술(Flutter + NestJS) 재사용
+- **백엔드:** 기존 NestJS에 관리자용 API를 추가 (`/admin/*`)
+- **목표:** 구현 속도·유지보수 효율을 높이고 추가 운영 비용 최소화
+
+---
+
+## 7. 문서 및 구조
 
 - **프로젝트 구조:** `docs/PROJECT_STRUCTURE.md`
 - **아키텍처·로직:** `docs/ARCHITECTURE.md`

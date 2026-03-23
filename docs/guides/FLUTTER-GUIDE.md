@@ -63,6 +63,7 @@ Future<List<Truck>> fetchTrucks() async {
 ## 4. 이 프로젝트에서의 사용
 
 - **frontend/mobile-flutter** 가 Flutter 앱 폴더입니다.
+- **운영 관리자 프로그램도 Flutter Web로 개발**하여 모바일 앱과 동일 기술 스택을 재사용합니다.
 - **지도:** Google Maps / Kakao Map API 연동으로 “주변 트럭”을 지도에 표시합니다.
 - **API 호출:** REST API는 **http** 패키지나 **dio** 등으로 `GET`/`POST` 하고, **shared/api-spec/rest-api.md** 스펙을 따릅니다.
 - **실시간:** Socket.io 클라이언트 패키지로 **shared/api-spec/realtime-events.md** 의 이벤트를 구독·발행합니다.
