@@ -9,6 +9,11 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 ## [Unreleased]
 
 ### Added
+- 2026-03-07 `frontend/mobile-flutter/lib/main.dart`, `frontend/mobile-flutter/lib/features/admin/` — Flutter Web 관리자 UI 기본 화면/모델/API 클라이언트 구현 (계정·트럭 관리, 감사로그 조회)
+- 2026-03-07 `backend/nest/src/modules/admin/` — 관리자 API 모듈 추가 (`/admin/users`, `/admin/owners`, `/admin/trucks`, `/admin/audit-logs`)
+- 2026-03-07 `backend/nest/src/common/guards/admin-role.guard.ts` — admin role 전용 접근 제어 가드 추가
+- 2026-03-07 `backend/nest/src/entities/audit-log.entity.ts` — 운영 감사 로그 엔티티 추가
+- 2026-03-07 `scripts/migrations/003_admin_rbac_and_audit_logs.sql` — 관리자 RBAC(`users.role`에 `admin`) 및 `audit_logs` 테이블 생성 마이그레이션 추가
 - 2026-03-07 `backend/nest/src/modules/realtime/realtime.gateway.ts` — Socket.io 실시간 서버 구현 (`truck:open/close/location/stock_update`, 브로드캐스트 이벤트)
 - 2026-03-07 `docs/REALTIME-CLIENT-GUIDE.md` — 모바일 클라이언트 실시간 연동 가이드 추가
 - 2026-03-07 `backend/nest/src/modules/users/` — 사용자 프로필/찜 API 구현 (`/users/me`, `/favorites`)
@@ -35,6 +40,22 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
 
 ### Changed
+- 2026-03-23 `docs/ROADMAP.md` — Phase 0-2(카카오/구글 Map API 키 발급) 완료 취소선 처리
+- 2026-03-23 `docs/ROADMAP.md` — Phase 0-4(Flutter SDK 설치/빌드 환경) 완료 취소선 처리
+- 2026-03-23 `.env` — Firebase Admin SDK용 `GOOGLE_APPLICATION_CREDENTIALS` 경로 설정
+- 2026-03-23 `.gitignore` — Firebase Admin SDK 서비스계정 JSON(`firebase-adminsdk-*`) 커밋 방지 규칙 추가
+- 2026-03-23 `docs/ROADMAP.md` — Phase 0-3(Firebase Admin SDK 키 준비) 완료 취소선 처리
+- 2026-03-07 `.env` — `MAP_API_KEY`를 Kakao Map JS Key로 설정
+- 2026-03-07 `.env` — 카카오 키 분리(`MAP_PROVIDER=kakao`, `KAKAO_JS_API_KEY`/`KAKAO_NATIVE_APP_KEY`/`KAKAO_REST_API_KEY` 추가)
+- 2026-03-07 `.env.example` — Kakao Map 플랫폼별 키 변수 추가
+- 2026-03-07 `docs/DEVELOPMENT.md` — Kakao Map 키 변수(`MAP_PROVIDER`, `KAKAO_*`) 문서화
+- 2026-03-07 `frontend/mobile-flutter/lib/core/config/map_api_keys.dart` — 웹은 JS 키, 모바일은 native 키 선택 헬퍼 추가
+- 2026-03-07 `frontend/mobile-flutter/pubspec.yaml`, `frontend/mobile-flutter/README.md` — Flutter 의존성(http) 및 관리자 UI 실행 안내 추가
+- 2026-03-07 `docs/ROADMAP.md` — Phase 4-10(관리자 웹 UI 구현) 완료 취소선 처리
+- 2026-03-07 `backend/nest/src/app.module.ts`, `backend/nest/src/entities/index.ts`, `backend/nest/src/entities/user.entity.ts` — AdminModule/AuditLog 엔티티 등록 및 사용자 role 범위를 `admin`까지 확장
+- 2026-03-07 `scripts/migrations/README.md` — 003 관리자 RBAC/감사 로그 마이그레이션 안내 추가
+- 2026-03-07 `shared/api-spec/rest-api.md` — 관리자 API 스펙(`/admin/*`) 및 감사 로그 응답 예시 추가
+- 2026-03-07 `docs/ROADMAP.md` — Phase 4.5 중 4-8/4-9/4-11/4-12 완료 취소선 처리
 - 2026-03-07 `.cursor/rules/whereistruck-project.mdc` — §4.5 기능 단위 커밋 규칙 추가 (인증/실시간/문서 등 변경을 목적별 커밋으로 분리)
 - 2026-03-07 `docs/ROADMAP.md` — Phase 3-1(실시간 이벤트 스펙), 3-2(Socket.io 서버), 3-3(클라이언트 연동 문서화) 완료 취소선 처리
 - 2026-03-07 `docs/ROADMAP.md` — Phase 2-4(사용자·찜 API), 2-5(API 수동 검증 가이드) 완료 취소선 처리

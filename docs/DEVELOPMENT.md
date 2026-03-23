@@ -22,12 +22,19 @@
 
 | 변수 | 설명 |
 |------|------|
-| `MAP_API_KEY` | Google Maps 또는 Kakao Map API Key |
+| `MAP_API_KEY` | Google Maps 또는 Kakao Map API Key (기본 폴백) |
+| `MAP_PROVIDER` | `google` 또는 `kakao` |
+| `KAKAO_JS_API_KEY` | Kakao Map JavaScript 키 (웹에서 사용) |
+| `KAKAO_NATIVE_APP_KEY` | Kakao Map native app 키 (Android/iOS에서 사용) |
+| `KAKAO_REST_API_KEY` | Kakao Map REST 키 (서버/대행 로직에서 사용 가능) |
 | `DATABASE_URL` | PostgreSQL 연결 문자열 (PostGIS 사용 DB) |
 | `FIREBASE_*` 또는 `GOOGLE_APPLICATION_CREDENTIALS` | Firebase Admin 인증 |
 | `PORT` | NestJS 서버 포트 (기본 3000) |
 
 백엔드별로 `.env`를 각각 두거나, 루트 `.env`를 각 앱에서 로드하도록 구성할 수 있습니다.
+
+참고: Kakao 지도 Web API는 `JavaScript Key`가 필요하고, `JavaScript SDK 도메인` 등록이 필요합니다.
+가이드는 `https://apis.map.kakao.com/web/guide/` 를 참고하세요.
 
 ---
 

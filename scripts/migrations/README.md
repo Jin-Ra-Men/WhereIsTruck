@@ -23,3 +23,4 @@ psql -U whereistruck -h localhost -d whereistruck -f 001_initial_schema.sql
 
 - **001_initial_schema.sql** — users, trucks, locations, favorites, reviews 테이블 및 인덱스·트리거 생성. PostGIS 확장 사용.
 - **002_owner_access_requests.sql** — 사장님 권한 2트랙(추천 요청, 유료 즉시 권한 결제 요청) 테이블 및 인덱스·트리거 생성.
+- **003_admin_rbac_and_audit_logs.sql** — 관리자 RBAC를 위해 `users.role`에 `admin` 추가, 운영 감사 로그(`audit_logs`) 테이블 및 인덱스 생성.
