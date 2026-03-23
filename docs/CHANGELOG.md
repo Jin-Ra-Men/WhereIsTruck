@@ -10,6 +10,11 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 
 ### Added
 - 2026-03-07 `frontend/mobile-flutter/lib/main.dart`, `frontend/mobile-flutter/lib/features/admin/` — Flutter Web 관리자 UI 기본 화면/모델/API 클라이언트 구현 (계정·트럭 관리, 감사로그 조회)
+- 2026-03-23 `frontend/mobile-flutter/lib/core/config/api_base_url.dart` — REST API Base URL 주입 헬퍼 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/` — `GET /locations/nearby` 기반 주변 트럭 조회 API 클라이언트/모델/UI 추가(지도 마커 연동은 다음 단계 보류)
+- 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/models/truck_models.dart` — 트럭 상세 응답 모델 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/data/trucks_api_client.dart` — `GET /trucks/:id` 트럭 상세 API 클라이언트 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/features/trucks/ui/truck_detail_page.dart` — 트럭 상세/메뉴/사진 화면(cover_image_url, menu_summary) 추가
 - 2026-03-07 `backend/nest/src/modules/admin/` — 관리자 API 모듈 추가 (`/admin/users`, `/admin/owners`, `/admin/trucks`, `/admin/audit-logs`)
 - 2026-03-07 `backend/nest/src/common/guards/admin-role.guard.ts` — admin role 전용 접근 제어 가드 추가
 - 2026-03-07 `backend/nest/src/entities/audit-log.entity.ts` — 운영 감사 로그 엔티티 추가
@@ -40,6 +45,9 @@ WhereIsTruck 프로젝트의 변경 사항을 상세히 기록합니다.
 - 2025-03-06 `docs/ERRORS.md` — 오류 내역 문서 생성 및 기록 형식 정의
 
 ### Changed
+- 2026-03-23 `frontend/mobile-flutter/lib/main.dart` — 주변 트럭/관리자 탭 네비게이션 추가
+- 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/kakao_map_view.dart` — Kakao 지도에 open 트럭 마커 표시 구현(플랫폼 뷰 없이 JS DOM 오버레이)
+- 2026-03-23 `frontend/mobile-flutter/lib/features/nearby_trucks/ui/nearby_trucks_page.dart` — 트럭 목록 클릭 시 트럭 상세 화면(4-3)으로 이동하도록 연결
 - 2026-03-23 `docs/ROADMAP.md` — Phase 0-2(카카오/구글 Map API 키 발급) 완료 취소선 처리
 - 2026-03-23 `docs/ROADMAP.md` — Phase 0-4(Flutter SDK 설치/빌드 환경) 완료 취소선 처리
 - 2026-03-23 `.env` — Firebase Admin SDK용 `GOOGLE_APPLICATION_CREDENTIALS` 경로 설정
