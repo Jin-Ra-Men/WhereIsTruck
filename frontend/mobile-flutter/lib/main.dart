@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'features/admin/ui/admin_dashboard_page.dart';
+import 'features/nearby_trucks/ui/nearby_trucks_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,26 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const AdminDashboardPage(),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('WhereIsTruck'),
+            bottom: const TabBar(
+              tabs: [
+                Tab(text: '주변 트럭'),
+                Tab(text: '관리자'),
+              ],
+            ),
+          ),
+          body: const TabBarView(
+            children: [
+              NearbyTrucksPage(),
+              AdminDashboardPage(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
