@@ -102,6 +102,8 @@ backend/nest/src/
 - REST API: **shared/api-spec/rest-api.md** 에 정의된 경로를 Nest 컨트롤러·서비스로 구현합니다.
 - DB: **TypeORM**으로 PostgreSQL에 접속합니다. (TYPEORM-GUIDE.md 참고)
 - 실시간: **Socket.io**를 Nest **Gateway**로 띄웁니다. (SOCKETIO-GUIDE.md 참고)
+- 인증 구현: `FirebaseAuthGuard`로 Bearer 토큰을 검증하고, `@CurrentUser()` 데코레이터로 사용자 정보를 주입해 사용합니다.
+- 권한 2트랙 예시: `/auth/owner/requests/recommendation`, `/auth/owner/requests/payment`, `/auth/owner/approve-payment` 같은 API를 AuthModule에서 관리합니다.
 
 ---
 
